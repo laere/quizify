@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
+
+
+// VARIABLES
+
+$color-primary: #fa8302;
+$color-grey: #F4F4F4;
+$color-green: #02fa83;
+
+$color-white: #fff;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.7rem;
+  background-color: $color-primary;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+}
+
+.quizapp {
+  width: 50rem;
+  margin: 4rem auto;
+  padding: 3rem 0;
+  text-align: center;
+  border-radius: 1rem;
+  // background-color: $color-grey;
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.question-wrapper {
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+
+
+  &__heading {
+    margin-bottom: 2rem;
+    font-size: 4.5rem;
+    background-color: $color-white;
+    border-radius: .5rem;
+    padding: 1.5rem 0;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+
+  &__question {
+    background-color: $color-white;
+    font-size: 2rem;
+    border-radius: .5rem;
+    font-weight: 300;
+    padding: 1.5rem 0;
+  }
+}
+
+.answers {
+  list-style: none;
+}
+
+.answer-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-radius: .5rem;
+
+  &__answer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  & label {
+    font-size: 1.9rem;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    padding: 2.5rem 0;
+    -webkit-transition: all 0.25s linear;
+    background-color: $color-white;
+    border-radius: .5rem;
+
+    &:hover {
+      background-color: $color-grey;
+    }
+  }
+
+}
+
+.check {
+  margin-left: 4rem;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 4rem;
+  width: 4rem;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+.check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid $color-green;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: $color-green;
+}
+
+input[type=radio]:checked ~ label{
+  color: $color-green;
+}
+
+.radio-button {
+  position: absolute;
+  visibility: hidden;
+}
+
+.buttons-wrapper {
+
+  &__buttons {
+    border: none;
+    width: 100%;
+    padding: 3rem;
+    background-color: $color-green;
+    border-radius: .5rem;
+    color: $color-white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    cursor: pointer;
+    transition: all .2s;
+    border-bottom: 1px solid #02e176;
+
+    &:hover {
+      background-color: #32fd9c;
+    }
+  }
+
+}
