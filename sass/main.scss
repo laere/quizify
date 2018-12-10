@@ -1,10 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 
-
-
 // VARIABLES
-
 $color-primary: #fa8302;
 $color-grey: #F4F4F4;
 $color-green: #02fa83;
@@ -33,7 +30,7 @@ body {
 
 .quizapp {
   width: 50rem;
-  margin: 4rem auto;
+  margin: 3rem auto;
   padding: 3rem 0;
   text-align: center;
   border-radius: 1rem;
@@ -41,28 +38,25 @@ body {
 
   display: flex;
   flex-direction: column;
-
-
 }
 
 .question-wrapper {
   margin-bottom: 5rem;
-  text-transform: uppercase;
-
 
   &__heading {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 4.5rem;
     background-color: $color-white;
     border-radius: .5rem;
     padding: 1.5rem 0;
     letter-spacing: 1px;
     font-weight: 400;
+    text-transform: uppercase;
   }
 
   &__question {
     background-color: $color-white;
-    font-size: 2rem;
+    font-size: 2.5rem;
     border-radius: .5rem;
     font-weight: 300;
     padding: 1.5rem 0;

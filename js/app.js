@@ -38,23 +38,42 @@ var App = {
   quizQuestions:
   [
     {
-      question: 'This is Question 1',
-      answers: [1,2,3,4],
+      question: 'What color are aircraft black boxes?',
+      answers: ['Black', 'Bright Orange', 'Pink', 'Grey'],
       id: util.uuid(),
-      correctAnswer: 1,
+      correctAnswer: 'Bright Orange',
     },
     {
-      question: 'This is Question 2',
-      answers: [5,6,7,8],
+      question: 'What kind of animal is the jackrabbit?',
+      answers: ['Dog', 'Rodent', 'Reptile', 'Hare'],
       id: util.uuid(),
-      correctAnswer: 6,
+      correctAnswer: 'Hare',
     },
     {
-      question: 'This is Question 3',
-      answers: [9,10,11,12],
+      question: 'What do honey bees collect?',
+      answers: ['Nectar', 'Honey', 'Coins', 'Taxes'],
       id: util.uuid(),
-      correctAnswer: 11,
+      correctAnswer: 'Nectar',
+    },
+    {
+      question: 'How many months have 28 days in them?',
+      answers: ['3', '10', '12', '5'],
+      id: util.uuid(),
+      correctAnswer: '12',
+    },
+      {
+      question: 'What was Walt Disney afraid of?',
+      answers: ['Rabbits', 'Lions', 'Snakes', 'Mice'],
+      id: util.uuid(),
+      correctAnswer: 'Mice',
+    },
+     {
+      question: 'What is a crossbreed between a zebra and a donkey called?',
+      answers: ['Zonkey', 'Donbra', 'Zeky', 'Zebkey'],
+      id: util.uuid(),
+      correctAnswer: 'Zonkey',
     }
+
   ],
 
   init: function() {
@@ -73,8 +92,9 @@ var App = {
     if (e.target.id === 'next') {
       // if next button is hit AND it's the last question
       // then get the results
-      if (this.index === this.quizQuestions.length - 1) {
+      if (this.index >= this.quizQuestions.length - 1) {
         this.getResult();
+        return;
       } else {
         for (var i = 0; i < radioButtons.length; i++) {
           if (radioButtons[i].checked) {
@@ -83,8 +103,6 @@ var App = {
         }
       }
     }
-
-    console.log(this.index);
 
 
 
@@ -107,6 +125,7 @@ var App = {
   createQuestion: function(question) {
     var questionElement = document.getElementById('question');
     questionElement.textContent = question;
+
   },
 
   createAnswers: function(answers) {
@@ -166,14 +185,14 @@ var App = {
   determineAnswer: function(e) {
     // var radioButtons = Array.from(document.querySelectorAll('.radio-button'));
 
-    var userAnswer = parseInt(e.target.nextSibling.textContent);
-    if (isNaN(userAnswer)) {
-      userAnswer = 0;
-    }
+    var userAnswer = e.target.nextSibling.textContent;
+
     // console.log('user answer ' + userAnswer);
     // console.log('correct answer ' + this.quizQuestions[this.index].correctAnswer);
     // console.log('current index ' + this.index);
+
     if (userAnswer === this.quizQuestions[this.index].correctAnswer) {
+      console.log('user answer ' + userAnswer);
       this.usersScore++;
     }
 
@@ -186,6 +205,11 @@ var App = {
     var quizApp = document.getElementById('quizapp');
     var result = (100 * (this.usersScore / this.quizQuestions.length)) + '%';
     quizApp.textContent = result;
+  },
+
+  countdown: function(number) {
+    //30 second countdown timer
+    // If no answer then move to the next question.
   }
 
 }
